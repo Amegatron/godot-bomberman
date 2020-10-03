@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/objects/capabilities/Move.gd" type="Script" id=1]
+[ext_resource path="res://src/objects/capabilities/PlantBomb.gd" type="Script" id=2]
+[ext_resource path="res://src/objects/entities/Player.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[sub_resource type="Resource" id=1]
+resource_name = "move"
+script = ExtResource( 1 )
+speed = 200
+
+[sub_resource type="Resource" id=2]
+resource_name = "plant_bomb"
+script = ExtResource( 2 )
+maxBombs = 1
+bombStrength = 1
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 30.8243
+height = 1.73837
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 3 )
+capabilities = [ SubResource( 1 ), SubResource( 2 ) ]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )

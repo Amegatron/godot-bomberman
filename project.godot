@@ -1,0 +1,109 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Entity",
+"class": "Block",
+"language": "GDScript",
+"path": "res://src/objects/entities/Block.gd"
+}, {
+"base": "Entity",
+"class": "Bomb",
+"language": "GDScript",
+"path": "res://src/objects/entities/Bomb.gd"
+}, {
+"base": "Entity",
+"class": "Bricks",
+"language": "GDScript",
+"path": "res://src/objects/entities/Bricks.gd"
+}, {
+"base": "Resource",
+"class": "Capability",
+"language": "GDScript",
+"path": "res://src/objects/Capability.gd"
+}, {
+"base": "Capability",
+"class": "DetonateCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/Detonate.gd"
+}, {
+"base": "Entity",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://src/objects/entities/Enemy.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://src/objects/Entity.gd"
+}, {
+"base": "Capability",
+"class": "ExplodeCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/Explode.gd"
+}, {
+"base": "Object",
+"class": "Map",
+"language": "GDScript",
+"path": "res://src/objects/Map.gd"
+}, {
+"base": "Object",
+"class": "MapGenerator",
+"language": "GDScript",
+"path": "res://src/objects/MapGenerator.gd"
+}, {
+"base": "Capability",
+"class": "MoveCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/Move.gd"
+}, {
+"base": "Capability",
+"class": "PlantBombCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/PlantBomb.gd"
+}, {
+"base": "Entity",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/objects/entities/Player.gd"
+}, {
+"base": "MapGenerator",
+"class": "SimpleMapGenerator",
+"language": "GDScript",
+"path": "res://src/objects/generators/SimpleMapGenerator.gd"
+} ]
+_global_script_class_icons={
+"Block": "",
+"Bomb": "",
+"Bricks": "",
+"Capability": "",
+"DetonateCapability": "",
+"Enemy": "",
+"Entity": "",
+"ExplodeCapability": "",
+"Map": "",
+"MapGenerator": "",
+"MoveCapability": "",
+"PlantBombCapability": "",
+"Player": "",
+"SimpleMapGenerator": ""
+}
+
+[application]
+
+config/name="BombermanComposition"
+config/icon="res://icon.png"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"

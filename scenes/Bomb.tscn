@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/objects/entities/Bomb.gd" type="Script" id=1]
+[ext_resource path="res://bomb.png" type="Texture" id=2]
+[ext_resource path="res://src/objects/capabilities/Explode.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=2]
+resource_name = "explode"
+script = ExtResource( 3 )
+strength = 1.0
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 28.5011
+
+[node name="Bomb" type="KinematicBody2D"]
+script = ExtResource( 1 )
+capabilities = [ SubResource( 2 ) ]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, -0.5 )
+shape = SubResource( 1 )

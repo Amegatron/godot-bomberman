@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/objects/entities/Player.gd" type="Script" id=1]
+[ext_resource path="res://src/objects/capabilities/Move.gd" type="Script" id=2]
+[ext_resource path="res://src/objects/capabilities/PlantBomb.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=1]
+resource_name = "move"
+script = ExtResource( 2 )
+speed = 200
+
+[sub_resource type="Resource" id=2]
+resource_name = "plant_bomb"
+script = ExtResource( 3 )
+maxBombs = 1
+bombStrength = 1
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2( 327.058, 318.708 )
+script = ExtResource( 1 )
+capabilities = [ SubResource( 1 ), SubResource( 2 ) ]
