@@ -5,30 +5,30 @@ class_name MapGenerator
 var map
 
 func _init(m):
-	m = map
+	map = m
 
-func generate():
+func generate(level):
 	pass
 	
 func _place_grid():
-	var height = map.hegiht
+	var height = map.height
 	var width = map.width
-
+	
 	for w in range(width/2):
 		for h in range(height/2):
-			map.setCell(w*2, h*2, Map.CELL_BLOCK)
+			map.setCell(Vector2(w*2, h*2), BlockFactory.create())
 
 func _place_borders():
-	var height = map.hegiht
+	var height = map.height
 	var width = map.width
 	
 	#
 	# Borders
 	#
 	for w in range(width):
-		map.setCell(w, 0, Map.CELL_BLOCK)
-		map.setCell(w, height - 1, Map.CELL_BLOCK)
+		map.setCell(Vector2(w, 0), BlockFactory.create())
+		map.setCell(Vector2(w, height - 1), BlockFactory.create())
 		
 	for h in range(height):
-		map.setCell(0, h, Map.CELL_BLOCK)
-		map.setCell(width - 1, h, Map.CELL_BLOCK)	
+		map.setCell(Vector2(0, h), BlockFactory.create())
+		map.setCell(Vector2(width - 1, h), BlockFactory.create())	

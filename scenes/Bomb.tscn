@@ -1,24 +1,49 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/objects/entities/Bomb.gd" type="Script" id=1]
 [ext_resource path="res://bomb.png" type="Texture" id=2]
-[ext_resource path="res://src/objects/capabilities/Explode.gd" type="Script" id=3]
 
-[sub_resource type="Resource" id=2]
-resource_name = "explode"
-script = ExtResource( 3 )
-strength = 1.0
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 30, 30 )
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 28.5011
+[sub_resource type="Animation" id=3]
+resource_name = "bomb_idle_animation"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.95, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
 
 [node name="Bomb" type="KinematicBody2D"]
+collision_layer = 2147483656
+collision_mask = 2147483663
 script = ExtResource( 1 )
-capabilities = [ SubResource( 2 ) ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.5, -0.5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/bomb_idle_animation = SubResource( 3 )

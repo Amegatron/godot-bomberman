@@ -23,3 +23,6 @@ func _set_plant_capability(value):
 func _on_bomb_planted():
 	#TODO: impleent bomb queue
 	pass
+	
+func _on_owner_action_performed(action, args):
+	pass

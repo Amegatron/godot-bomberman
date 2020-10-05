@@ -14,15 +14,35 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/objects/entities/Block.gd"
 }, {
+"base": "Object",
+"class": "BlockFactory",
+"language": "GDScript",
+"path": "res://src/objects/factories/BlockFactory.gd"
+}, {
 "base": "Entity",
 "class": "Bomb",
 "language": "GDScript",
 "path": "res://src/objects/entities/Bomb.gd"
 }, {
+"base": "Object",
+"class": "BombFactory",
+"language": "GDScript",
+"path": "res://src/objects/factories/BombFactory.gd"
+}, {
+"base": "TakeDamageCapability",
+"class": "BombTakeDamageCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/damages/BombTakeDamage.gd"
+}, {
 "base": "Entity",
 "class": "Bricks",
 "language": "GDScript",
 "path": "res://src/objects/entities/Bricks.gd"
+}, {
+"base": "Object",
+"class": "BricksFactory",
+"language": "GDScript",
+"path": "res://src/objects/factories/BricksFactory.gd"
 }, {
 "base": "Resource",
 "class": "Capability",
@@ -48,6 +68,16 @@ _global_script_classes=[ {
 "class": "ExplodeCapability",
 "language": "GDScript",
 "path": "res://src/objects/capabilities/Explode.gd"
+}, {
+"base": "Entity",
+"class": "Explosion",
+"language": "GDScript",
+"path": "res://src/objects/entities/Explosion.gd"
+}, {
+"base": "Object",
+"class": "ExplosionFactory",
+"language": "GDScript",
+"path": "res://src/objects/factories/ExplosionFactory.gd"
 }, {
 "base": "Object",
 "class": "Map",
@@ -78,22 +108,34 @@ _global_script_classes=[ {
 "class": "SimpleMapGenerator",
 "language": "GDScript",
 "path": "res://src/objects/generators/SimpleMapGenerator.gd"
+}, {
+"base": "Capability",
+"class": "TakeDamageCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/TakeDamage.gd"
 } ]
 _global_script_class_icons={
 "Block": "",
+"BlockFactory": "",
 "Bomb": "",
+"BombFactory": "",
+"BombTakeDamageCapability": "",
 "Bricks": "",
+"BricksFactory": "",
 "Capability": "",
 "DetonateCapability": "",
 "Enemy": "",
 "Entity": "",
 "ExplodeCapability": "",
+"Explosion": "",
+"ExplosionFactory": "",
 "Map": "",
 "MapGenerator": "",
 "MoveCapability": "",
 "PlantBombCapability": "",
 "Player": "",
-"SimpleMapGenerator": ""
+"SimpleMapGenerator": "",
+"TakeDamageCapability": ""
 }
 
 [application]
@@ -101,9 +143,17 @@ _global_script_class_icons={
 config/name="BombermanComposition"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="blocks"
+2d_physics/layer_3="bricks"
+2d_physics/layer_4="bombs"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.227451, 0.682353, 0.215686, 1 )
 environment/default_environment="res://default_env.tres"

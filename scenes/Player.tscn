@@ -13,14 +13,17 @@ speed = 200
 [sub_resource type="Resource" id=2]
 resource_name = "plant_bomb"
 script = ExtResource( 2 )
-maxBombs = 1
+maxBombs = 2
 bombStrength = 1
+bombTimeout = 5
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 30.8243
 height = 1.73837
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 2147483649
+collision_mask = 15
 script = ExtResource( 3 )
 capabilities = [ SubResource( 1 ), SubResource( 2 ) ]
 

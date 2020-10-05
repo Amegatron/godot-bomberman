@@ -2,14 +2,18 @@ extends MapGenerator
 
 class_name SimpleMapGenerator
 
-var bricksPercentage := 20
+var bricksPercentage := 10
 var mapSeed : int setget _set_seed
 
-func generate():
+func _init(m).(m):
+	pass
+
+func generate(level):
 	_place_borders()
 	_place_grid()
 	
 	var bricksAmount = floor(map.width * map.height * bricksPercentage / 100);
+	print("bricksAmount == ", bricksAmount)
 	
 	if !mapSeed:
 		randomize()
@@ -25,15 +29,19 @@ func generate():
 				break
 
 			# Bricks can only be on odd coordinates
-			var x = (randi() % (map.width / 2)) * 2 + 1
-			var y = (randi() % (map.height / 2)) * 2 + 1
+			var x = randi() % map.width
+			var y = randi() % map.height
 			
 			# Make sure upper-left corder is free from bricks
 			if x == 1 && y == 1 || x == 1 && y == 2 || x == 2 && y == 1:
 				continue
 			
-			if map.map[x][y] != Map.CELL_BLOCK && map.map[x][y] != Map.CELL_BRICKS:
-				map.setCell(x, y, Map.CELL_BRICKS)
+			if map._get_cell_type(Vector2(x, y)) == Map.CELL_EMPTY:
+				var bricks = BricksFactory.create()
+				bricks.level = level
+				# bricks.position = Vector2(x, y)
+				map.setCell(Vector2(x, y), bricks)
+				level.add_entity(bricks, Vector2(x, y))
 				break
 						
 func _set_seed(value):
