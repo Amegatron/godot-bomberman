@@ -16,4 +16,3 @@ static func create(timeout = 5, strength = 1):
 	
 	return bomb
 	
-

@@ -9,6 +9,7 @@ static func create():
 	player.add_capability(cap)
 	
 	cap = PlantBombCapability.new()
+	cap.sound = load("res://sounds/plant_bomb.wav")
 	player.add_capability(cap)
 	
 	cap = TakeDamageCapability.new()

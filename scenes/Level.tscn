@@ -12,7 +12,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=3]
 0/name = "block.png 0"
 0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
@@ -60,7 +60,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 script = ExtResource( 4 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 4 )
+tile_set = SubResource( 3 )
 format = 1
 script = ExtResource( 2 )
 
@@ -71,3 +71,5 @@ current = true
 limit_left = 0
 limit_top = 0
 script = ExtResource( 6 )
+
+[node name="Sounds" type="Node" parent="."]

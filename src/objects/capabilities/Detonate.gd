@@ -1,5 +1,7 @@
 extends Capability
 
+# NOT USED YET
+
 class_name DetonateCapability
 
 var plantBombCapability : PlantBombCapability setget _set_plant_capability;

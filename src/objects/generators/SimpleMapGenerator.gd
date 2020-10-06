@@ -20,6 +20,9 @@ func generate(level):
 	else:
 		rand_seed(mapSeed)
 		
+	var gatewayAdded = false
+	var powerupAdded = false
+	
 	for i in range(bricksAmount):
 		var cnt := 0
 		while true:
@@ -39,7 +42,27 @@ func generate(level):
 			if map._get_cell_type(Vector2(x, y)) == Map.CELL_EMPTY:
 				var bricks = BricksFactory.create()
 				bricks.level = level
-				# bricks.position = Vector2(x, y)
+				
+				if !gatewayAdded:
+					var gateway = GatewayFactory.create()
+					var cap = SpawnOnDeathCapability.new()
+					cap.target = gateway
+					bricks.add_capability(cap)
+					gatewayAdded = true
+				elif !powerupAdded:
+					var powerupEntity = PowerupFactory.createMoreBombsPowerup()
+					
+					# TODO: chose random powerup
+					var powerupCap = MoreBombsPowerupCapability.new()
+					powerupEntity.add_capability(powerupCap)
+					var areaCap = AreaOfEffectCapability.new()
+					powerupEntity.add_capability(areaCap)
+					
+					var spawnCap = SpawnOnDeathCapability.new()
+					spawnCap.target = powerupEntity
+					bricks.add_capability(spawnCap)
+					powerupAdded = true
+					
 				map.setCell(Vector2(x, y), bricks)
 				level.add_entity(bricks, Vector2(x, y))
 				break

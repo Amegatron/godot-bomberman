@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Capability",
+"class": "AreaOfEffectCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/AreaOfEffect.gd"
+}, {
 "base": "Entity",
 "class": "Block",
 "language": "GDScript",
@@ -84,6 +89,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/objects/factories/ExplosionFactory.gd"
 }, {
+"base": "Entity",
+"class": "Gateway",
+"language": "GDScript",
+"path": "res://src/objects/entities/Gateway.gd"
+}, {
+"base": "Object",
+"class": "GatewayFactory",
+"language": "GDScript",
+"path": "res://src/objects/factories/GatewayFactory.gd"
+}, {
 "base": "Object",
 "class": "Map",
 "language": "GDScript",
@@ -94,10 +109,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/objects/MapGenerator.gd"
 }, {
+"base": "PowerupCapability",
+"class": "MoreBombsPowerupCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/powerups/MoreBombs.gd"
+}, {
 "base": "Capability",
 "class": "MoveCapability",
 "language": "GDScript",
 "path": "res://src/objects/capabilities/Move.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": "OneTimeSound",
+"language": "GDScript",
+"path": "res://src/objects/OneTimeSound.gd"
 }, {
 "base": "Capability",
 "class": "PlantBombCapability",
@@ -114,6 +139,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/objects/factories/PlayerFactory.gd"
 }, {
+"base": "Entity",
+"class": "Powerup",
+"language": "GDScript",
+"path": "res://src/objects/entities/Powerup.gd"
+}, {
+"base": "Capability",
+"class": "PowerupCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/Powerup.gd"
+}, {
+"base": "Object",
+"class": "PowerupFactory",
+"language": "GDScript",
+"path": "res://src/objects/factories/powerups/PowerupFactory.gd"
+}, {
 "base": "Timer",
 "class": "RestartTimer",
 "language": "GDScript",
@@ -125,11 +165,17 @@ _global_script_classes=[ {
 "path": "res://src/objects/generators/SimpleMapGenerator.gd"
 }, {
 "base": "Capability",
+"class": "SpawnOnDeathCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/SpawnOnDeath.gd"
+}, {
+"base": "Capability",
 "class": "TakeDamageCapability",
 "language": "GDScript",
 "path": "res://src/objects/capabilities/TakeDamage.gd"
 } ]
 _global_script_class_icons={
+"AreaOfEffectCapability": "",
 "Block": "",
 "BlockFactory": "",
 "Bomb": "",
@@ -145,14 +191,22 @@ _global_script_class_icons={
 "ExplodeCapability": "",
 "Explosion": "",
 "ExplosionFactory": "",
+"Gateway": "",
+"GatewayFactory": "",
 "Map": "",
 "MapGenerator": "",
+"MoreBombsPowerupCapability": "",
 "MoveCapability": "",
+"OneTimeSound": "",
 "PlantBombCapability": "",
 "Player": "",
 "PlayerFactory": "",
+"Powerup": "",
+"PowerupCapability": "",
+"PowerupFactory": "",
 "RestartTimer": "",
 "SimpleMapGenerator": "",
+"SpawnOnDeathCapability": "",
 "TakeDamageCapability": ""
 }
 

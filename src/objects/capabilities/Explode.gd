@@ -4,6 +4,8 @@ class_name ExplodeCapability
 
 export var strength : int = 1
 
+var explosionSound = preload("res://sounds/explosion.wav")
+
 func _init():
 	capabilityName = "Explode"
 	
@@ -56,4 +58,9 @@ func perform(args):
 	var explosion = ExplosionFactory.create(ExplosionFactory.DIR_CROSS)
 	owner.level.add_entity(explosion, Vector2(pos.x, pos.y))
 	
-	owner.queue_free();
+	var sound = OneTimeSound.new()
+	sound.stream = explosionSound
+	sound.autoplay = true
+	owner.level.add_child(sound)
+	
+	owner.queue_death(0.5);

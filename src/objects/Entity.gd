@@ -15,6 +15,8 @@ var isDead := false
 
 signal action_performed(action, args)
 signal died
+signal dying
+signal custom_capability_signal(capability, signalName, args)
 
 var beforeActionCallbacks := {}
 
@@ -30,6 +32,10 @@ func _ready():
 		cap.owner = self
 		capabilitiesDict[cap.capabilityName] = cap
 
+func emit_capability_signal(capability, signalName, args):
+	print("custom_capability_signal: ", signalName, ", from: ", capability)
+	emit_signal("custom_capability_signal", capability, signalName, args)
+	
 func add_capability(cap):
 	var testCap = get_capability(cap.capabilityName)
 	if testCap != null:
@@ -96,19 +102,26 @@ var deathTimer
 # TODO: refactor death (make separate action)
 func queue_death(after):
 	isDead = true
-	deathTimer = Timer.new()
-	deathTimer.wait_time = after
-	deathTimer.connect("timeout", self, "_on_death_timeout")
-	level.add_child(deathTimer)
-	deathTimer.start()
 	
 	# Default death animation
 	if has_node("AnimationPlayer"):
 		var anim = get_node("AnimationPlayer")
 		if anim.has_animation("death"):
 			anim.play("death")
+			
+	emit_signal("dying")
+	
+	if after > 0:
+		deathTimer = Timer.new()
+		deathTimer.wait_time = after
+		deathTimer.connect("timeout", self, "_on_death_timeout")
+		level.add_child(deathTimer)
+		deathTimer.start()
+	else:
+		_on_death_timeout()
 
 func _on_death_timeout():
-	deathTimer.queue_free()
+	if deathTimer:
+		deathTimer.queue_free()
 	queue_free()
 	emit_signal("died")
