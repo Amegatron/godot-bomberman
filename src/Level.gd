@@ -1,6 +1,5 @@
 extends Node2D
 
-var playerResource = preload("res://scenes/Player.tscn")
 var player
 
 var map
@@ -17,10 +16,12 @@ func _ready():
 	generator.generate(self)
 
 	tileMap.map = map
-	player = playerResource.instance()
-	player.position = Vector2(96, 96)
-	player.level = self
-	entitiesContainer.add_child(player)
+	spawn_player(Vector2(1, 1))
+
+func spawn_player(pos):
+	if !player:
+		player = PlayerFactory.create()
+		add_entity(player, pos)
 
 func _physics_process(delta):
 	var moveVector := Vector2()
@@ -34,11 +35,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		moveVector.x += 1
 		
-	if moveVector.length() > 0:
-		player.perform_action("Move", { "vector": moveVector.normalized() })
-		
-	if Input.is_action_just_pressed("ui_accept"):
-		player.perform_action("PlantBomb")
+	if player:
+		if moveVector.length() > 0:
+			player.perform_action("Move", { "vector": moveVector.normalized() })
+			
+		if Input.is_action_just_pressed("ui_accept"):
+			player.perform_action("PlantBomb")
 		
 func map_coords_to_global(pos):
 	return Vector2((pos.x + 0.5) * CELL_SIZE, (pos.y + 0.5) * CELL_SIZE)

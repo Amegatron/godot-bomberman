@@ -6,5 +6,6 @@ func _init():
 	capabilityName = "TakeDamage"
 	
 func perform(args):
-	#print(owner, " took damage")
 	owner.queue_death(1)
+	# TODO: make damage cool-down
+	owner.defer_remove_capability(capabilityName)

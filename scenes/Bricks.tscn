@@ -1,12 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/objects/entities/Bricks.gd" type="Script" id=1]
-[ext_resource path="res://bricks.png" type="Texture" id=2]
-[ext_resource path="res://bricks_destroy_2.png" type="Texture" id=3]
-[ext_resource path="res://bricks_destroy_5.png" type="Texture" id=4]
-[ext_resource path="res://bricks_destroy_1.png" type="Texture" id=5]
-[ext_resource path="res://bricks_destroy_4.png" type="Texture" id=6]
-[ext_resource path="res://bricks_destroy_3.png" type="Texture" id=7]
+[ext_resource path="res://images/bricks.png" type="Texture" id=2]
+[ext_resource path="res://images/bricks_destroy_2.png" type="Texture" id=3]
+[ext_resource path="res://images/bricks_destroy_5.png" type="Texture" id=4]
+[ext_resource path="res://images/bricks_destroy_1.png" type="Texture" id=5]
+[ext_resource path="res://images/bricks_destroy_4.png" type="Texture" id=6]
+[ext_resource path="res://images/bricks_destroy_3.png" type="Texture" id=7]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

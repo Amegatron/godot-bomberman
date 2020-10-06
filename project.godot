@@ -50,6 +50,11 @@ _global_script_classes=[ {
 "path": "res://src/objects/Capability.gd"
 }, {
 "base": "Capability",
+"class": "DealDamageCapability",
+"language": "GDScript",
+"path": "res://src/objects/capabilities/DealDamage.gd"
+}, {
+"base": "Capability",
 "class": "DetonateCapability",
 "language": "GDScript",
 "path": "res://src/objects/capabilities/Detonate.gd"
@@ -104,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/objects/entities/Player.gd"
 }, {
+"base": "Object",
+"class": "PlayerFactory",
+"language": "GDScript",
+"path": "res://src/objects/factories/PlayerFactory.gd"
+}, {
 "base": "MapGenerator",
 "class": "SimpleMapGenerator",
 "language": "GDScript",
@@ -123,6 +133,7 @@ _global_script_class_icons={
 "Bricks": "",
 "BricksFactory": "",
 "Capability": "",
+"DealDamageCapability": "",
 "DetonateCapability": "",
 "Enemy": "",
 "Entity": "",
@@ -134,6 +145,7 @@ _global_script_class_icons={
 "MoveCapability": "",
 "PlantBombCapability": "",
 "Player": "",
+"PlayerFactory": "",
 "SimpleMapGenerator": "",
 "TakeDamageCapability": ""
 }

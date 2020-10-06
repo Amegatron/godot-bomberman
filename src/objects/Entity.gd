@@ -14,6 +14,7 @@ var level
 var isDead := false
 
 signal action_performed(action, args)
+signal died
 
 var beforeActionCallbacks := {}
 
@@ -96,8 +97,14 @@ func queue_death(after):
 	deathTimer.connect("timeout", self, "_on_death_timeout")
 	level.add_child(deathTimer)
 	deathTimer.start()
+	
+	# Default death animation
+	if has_node("AnimationPlayer"):
+		var anim = get_node("AnimationPlayer")
+		if anim.has_animation("death"):
+			anim.play("death")
 
 func _on_death_timeout():
-	print("Entity: _on_death_timeout")
 	deathTimer.queue_free()
 	queue_free()
+	emit_signal("died")

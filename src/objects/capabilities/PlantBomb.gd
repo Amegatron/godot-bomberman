@@ -4,7 +4,7 @@ class_name PlantBombCapability
 
 export var maxBombs : int = 2;
 export var bombStrength : int = 1;
-export var bombTimeout : int = 5;
+export var bombTimeout : int = 4;
 
 var bombCounter : int = 0
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fire_horizontal.png-ee51d6181cdd50ac95f055db8ccb644d.stex"
+path="res://.import/block.png-34e81bb3c8a1f514df254e4e75bcfa3d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fire_horizontal.png"
-dest_files=[ "res://.import/fire_horizontal.png-ee51d6181cdd50ac95f055db8ccb644d.stex" ]
+source_file="res://images/block.png"
+dest_files=[ "res://.import/block.png-34e81bb3c8a1f514df254e4e75bcfa3d.stex" ]
 
 [params]
 

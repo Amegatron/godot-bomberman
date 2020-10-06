@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fire_center.png-cd2c5b06376440bd36d65a57033010e6.stex"
+path="res://.import/bricks_destroy_5.png-b82a60e7a5ebd01af05b7da7020405af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fire_center.png"
-dest_files=[ "res://.import/fire_center.png-cd2c5b06376440bd36d65a57033010e6.stex" ]
+source_file="res://images/bricks_destroy_5.png"
+dest_files=[ "res://.import/bricks_destroy_5.png-b82a60e7a5ebd01af05b7da7020405af.stex" ]
 
 [params]
 
