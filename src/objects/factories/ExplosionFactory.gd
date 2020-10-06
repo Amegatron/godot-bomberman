@@ -6,7 +6,7 @@ const DIR_CROSS = 0
 const DIR_VERTICAL = 1
 const DIR_HORIZONTAL = 2
 
-static func create(direction, duration = 1):
+static func create(direction, duration = 0.8):
 	var explosion = load("res://scenes/Explosion.tscn").instance()
 	var texture
 	var shape = RectangleShape2D.new()

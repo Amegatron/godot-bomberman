@@ -6,22 +6,31 @@ var map
 
 const CELL_SIZE = 64
 
+const MAP_WIDTH = 31
+const MAP_HEIGHT = 21
+
 onready var tileMap = $TileMap
 onready var entitiesContainer = $Entities
+onready var camera = $Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	map = Map.new(30, 20)
+	map = Map.new(MAP_WIDTH, MAP_HEIGHT)
 	var generator = SimpleMapGenerator.new(map)
 	generator.generate(self)
 
 	tileMap.map = map
 	spawn_player(Vector2(1, 1))
+	
+	camera.limit_right = MAP_WIDTH * CELL_SIZE
+	camera.limit_bottom = MAP_HEIGHT * CELL_SIZE
 
 func spawn_player(pos):
 	if !player:
 		player = PlayerFactory.create()
 		add_entity(player, pos)
+		camera.target = player
+		player.connect("died", self, "_on_player_died")
 
 func _physics_process(delta):
 	var moveVector := Vector2()
@@ -52,3 +61,10 @@ func add_entity(entity, pos):
 	entity.position = map_coords_to_global(pos)
 	entity.level = self
 	entitiesContainer.add_child(entity)
+
+func _on_player_died():
+	var timer = RestartTimer.new()
+	timer.wait_time = 3
+	timer.autostart = true
+	add_child(timer)
+

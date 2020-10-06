@@ -14,7 +14,7 @@ func _ready():
 	$AnimationPlayer.play("bomb_idle_animation")
 
 func _physics_process(delta):
-	if isIgnored && !$CollisionShape2D.shape.collide(transform, level.player.get_node("CollisionShape2D").shape, level.player.transform):
+	if isIgnored && level.player && !$CollisionShape2D.shape.collide(transform, level.player.get_node("CollisionShape2D").shape, level.player.transform):
 		isIgnored = false
 		level.player.remove_collision_exception_with(self)
 

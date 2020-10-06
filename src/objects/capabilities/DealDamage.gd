@@ -11,5 +11,5 @@ func _set_owner(value):
 	owner.get_node("Area2D").connect("body_entered", self, "_on_entity_enetered")
 	
 func _on_entity_enetered(body):
-	if body is Entity:
+	if body is Entity and !body.isDead:
 		body.perform_action("TakeDamage")

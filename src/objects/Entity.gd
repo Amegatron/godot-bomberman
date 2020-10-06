@@ -60,6 +60,9 @@ func get_capability(name):
 func perform_action(action, args := {}):
 	if !_check_before_action_callbacks(action, args):
 		return
+		
+	if isDead:
+		return
 	
 	var cap = get_capability(action)
 	if cap != null:
@@ -90,6 +93,7 @@ func remove_before_action_callback(action, funcRef):
 
 var deathTimer
 
+# TODO: refactor death (make separate action)
 func queue_death(after):
 	isDead = true
 	deathTimer = Timer.new()

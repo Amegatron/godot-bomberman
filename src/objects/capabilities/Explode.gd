@@ -55,5 +55,5 @@ func perform(args):
 			
 	var explosion = ExplosionFactory.create(ExplosionFactory.DIR_CROSS)
 	owner.level.add_entity(explosion, Vector2(pos.x, pos.y))
-			
+	
 	owner.queue_free();

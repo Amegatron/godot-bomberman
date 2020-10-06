@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/plant_bomb.wav-e77523046bd4d11c4d79b008fc88b78e.sample"
+
+[deps]
+
+source_file="res://sounds/plant_bomb.wav"
+dest_files=[ "res://.import/plant_bomb.wav-e77523046bd4d11c4d79b008fc88b78e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
