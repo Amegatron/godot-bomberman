@@ -3,4 +3,7 @@ extends Object
 class_name GatewayFactory
 
 static func create():
-	return load("res://scenes/Gateway.tscn").instance()
+	var gateway = load("res://scenes/Gateway.tscn").instance()
+	var cap = AreaOfEffectCapability.new()
+	gateway.add_capability(cap)
+	return gateway

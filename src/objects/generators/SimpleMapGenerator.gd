@@ -50,14 +50,13 @@ func generate(level):
 					bricks.add_capability(cap)
 					gatewayAdded = true
 				elif !powerupAdded:
-					var powerupEntity = PowerupFactory.createMoreBombsPowerup()
-					
-					# TODO: chose random powerup
-					var powerupCap = MoreBombsPowerupCapability.new()
-					powerupEntity.add_capability(powerupCap)
-					var areaCap = AreaOfEffectCapability.new()
-					powerupEntity.add_capability(areaCap)
-					
+					var powerupEntity
+					match randi() % 2:
+						0:
+							powerupEntity = PowerupFactory.createMoreBombsPowerup()
+						1:
+							powerupEntity = PowerupFactory.createMoreStrengthPowerup()
+							
 					var spawnCap = SpawnOnDeathCapability.new()
 					spawnCap.target = powerupEntity
 					bricks.add_capability(spawnCap)
